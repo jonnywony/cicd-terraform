@@ -2,7 +2,7 @@ name: Terraform CI
 
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
@@ -31,7 +31,7 @@ jobs:
 #terraform init
    - name: Initialize Terraform
      run: terraform init
-     
+
 #terraform plan
    - name: Terraform Plan
      run: terraform plan
