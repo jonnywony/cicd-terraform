@@ -13,7 +13,7 @@ jobs:
 
    steps:
   ##setup
-   - name: Checkout repositorys
+   - name: Checkout repository
      uses: actions/checkout@v2
 
   #aws configure
