@@ -2,9 +2,18 @@ name: Terraform CD
 
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to run tf apply on'
+        required: true
+        default: "dev"
+        type: choice
+        options:
+        ##these options here can be used to load different blocks of yaml for different steps
+        - dev
+        - staging
+        - prod
 
 
 jobs:
