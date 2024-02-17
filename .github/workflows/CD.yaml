@@ -43,4 +43,4 @@ jobs:
 
 #terraform apply
    - name: Initialize Terraform
-     run: terraform apply --auto-approve
+     run: terraform apply --auto-approve -var-file="environments/${{ github.event.inputs.environment }}.tfvars"
