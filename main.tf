@@ -1,4 +1,4 @@
-
+# add this
 locals {
   topic-name = "updates-topic"
 }
@@ -7,5 +7,6 @@ locals {
 
 #new sns topic
 resource "aws_sns_topic" "user_updates" {
-  name = local.topic-name
+  # change this
+  name = var.abc
 }
