@@ -1,10 +1,7 @@
 name: Terraform CI
 
 
-on:
-  pull_request:
-    branches:
-      - main
+on: push
 
 
 jobs:
@@ -22,7 +19,7 @@ jobs:
      with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1 # or hardcode us-east-1
+        aws-region: ap-southeast-1 # or hardcode us-east-1
 
 #install terraform
    - name: Set up Terraform
@@ -36,10 +33,28 @@ jobs:
    - name: Terraform prettify
      run: terraform fmt
 
-#terraform plan
-   - name: Terraform Plan
-     run: terraform plan
-
 #terraform validate
    - name: Terraform validate
      run: terraform validate
+
+   - uses: terraform-linters/setup-tflint@v3
+     with:
+      tflint_version: latest
+  
+   - name: Show version
+     run: tflint --version
+
+
+   - name: Init TFLint
+     run: tflint --init
+
+
+   - name: Run TFLint
+     run: tflint -f compact
+
+
+#terraform plan
+   - name: Terraform Plan
+     run: terraform plan -var-file=environment/prod.tfvars
+
+
