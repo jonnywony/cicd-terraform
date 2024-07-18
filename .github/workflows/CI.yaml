@@ -52,7 +52,6 @@ jobs:
    - name: Run TFLint
      run: tflint -f compact
 
-
 #terraform plan
    - name: Terraform Plan
      run: terraform plan -var-file=environment/prod.tfvars
