@@ -1,6 +1,6 @@
 # add this, then move it to variables.tf
-variable abc {
+variable "abc" {
   type        = string
-  default     = "jon-c-updates-topic"
-  description = "this is a type"
+  default     = "jon"
+  description = "this is a type of sns topic"
 }
