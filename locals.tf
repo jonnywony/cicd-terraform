@@ -1,4 +1,4 @@
-# add this
-locals {
-  topic-name = "updates"
-}
+# # add this
+# locals {
+#   topic-name = "updates"
+# }
